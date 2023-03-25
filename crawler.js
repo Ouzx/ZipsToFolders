@@ -1,5 +1,6 @@
-// select the unit before writing this code the developer console of the browser
-const buttons = document.querySelector(".card-body").childNodes;
+// select the unit, change the number in the id to the course order number
+const buttons = document.getElementById("5").querySelectorAll(".exercises-sidebar-unit-exercise");
+
 let i = 0;
 const max = buttons.length;
 setInterval(() => {

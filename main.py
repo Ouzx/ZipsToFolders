@@ -13,9 +13,18 @@ def extract_zip(zip_file, extract_dir):
 def main():
     dir = input('Enter the directory: ')
     os.chdir(dir)
-    for f in os.listdir('.'):
-        if f.endswith('.zip'):
-            extract_zip(f, 'ex')
+    # order to the creation date
+    for i, file in enumerate(sorted(os.listdir(dir), key=os.path.getctime)):
+        # if exercises folder doesn't exist, create
+        if not os.path.exists('exercises'):
+            os.mkdir('exercises')
+
+        # create a folder for each zip that named as order number
+        # extract to the new folder
+        if file.__contains__('.zip'):
+            os.mkdir('exercises/' + str(i))
+            extract_zip(file, 'exercises/' + str(i))
+            print('Extracted ' + file + ' to ' + 'exercises/' + str(i))
 
 
 if __name__ == '__main__':
