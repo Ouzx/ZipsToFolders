@@ -14,7 +14,9 @@ def main():
     dir = input('Enter the directory: ')
     os.chdir(dir)
     # order to the creation date
-    for i, file in enumerate(sorted(os.listdir(dir), key=os.path.getctime)):
+    # for i, file in enumerate(sorted(os.listdir(dir), key=os.path.getctime)):
+    # sort by creation date
+    for i, file in enumerate(sorted(os.listdir(dir), key=os.path.getmtime)):
         # if exercises folder doesn't exist, create
         if not os.path.exists('exercises'):
             os.mkdir('exercises')
